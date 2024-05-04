@@ -17,16 +17,37 @@
 @layer base {
   :root {
     /* Primary Clrs */
-    --light-cyan: 193, 38%, 86%;
-    --neon-green: 150, 100%, 66%;
+    --gray-900: 248, 15%, 11%;
+    --gray-700: 248, 10%, 15%;
+    --gray-500: 251, 9%, 53%;
+    --gray-200: 252, 11%, 91%;
+
+    --neon-green: 127, 100%, 82%;
+    --red: 0, 91%, 63%;
+    --orange: 13, 95%, 66%;
+    --yellow: 42, 91%, 68%;
 
 
     /* Secondary Clrs */
-    --grayish-400: 217, 19%, 38%;
-    --grayish-600: 217, 19%, 24%;
-    --grayish-800: 218, 23%, 16%;
-
-
 
   }
+}
+
+.test {
+  /* gray-900 */
+  color: hsl(248, 15%, 11%);
+  /* gray-700 */
+  color: hsl(248, 10%, 15%);
+  /* gray-500 */
+  color: hsl(251, 9%, 53%);
+  /* gray-200 */
+  color: hsl(252, 11%, 91%);
+  /* neon-green */
+  color: hsl(127, 100%, 82%);
+  /* red */
+  color: hsl(0, 91%, 63%);
+  /* orange */
+  color: hsl(13, 95%, 66%);
+  /* yellow */
+  color: hsl(42, 91%, 68%);
 }
