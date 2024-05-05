@@ -4,8 +4,14 @@ const CardBody = ({ className }: classNameProps) => {
   return (
     <div className={className}>
       <Slider />
-      <div className="mb-8 grid gap-4 md:gap-5">
-        <p>Include Uppercase Letters</p>
+      <div className="mb-8 grid gap-4 text-base md:gap-5 md:text-lg">
+        <div className="flex items-center justify-between">
+          <p>Include Uppercase Letters</p>
+          <div className="flex h-6 w-11 cursor-pointer items-center justify-end rounded-full bg-clr-gray-500 px-1">
+            <div className="size-5 rounded-full bg-clr-gray-200"></div>
+          </div>
+        </div>
+
         <p>Include Lowercase Letters</p>
         <p>Include Numbers</p>
         <p>Include Symbols</p>
