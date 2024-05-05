@@ -1,15 +1,28 @@
 import Slider from "./Slider";
+import { useState } from "react";
 
 const CardBody = ({ className }: classNameProps) => {
+  const [checked, setChecked] = useState<boolean>(false);
+
+  const handleToggle = () => {
+    setChecked(!checked);
+  };
+  console.log(checked);
   return (
     <div className={className}>
       <Slider />
       <div className="mb-8 grid gap-4 text-base md:gap-5 md:text-lg">
         <div className="flex items-center justify-between">
           <p>Include Uppercase Letters</p>
-          <div className="flex h-6 w-11 cursor-pointer items-center justify-end rounded-full bg-clr-gray-500 px-1">
-            <div className="size-5 rounded-full bg-clr-gray-200"></div>
-          </div>
+          <button
+            className={`flex h-6 w-11 cursor-pointer items-center justify-start rounded-full  px-1 transition-all duration-300 ease-in-out ${
+              checked ? "justify-end bg-clr-neon-green" : "bg-clr-gray-200"
+            }`}
+            onClick={handleToggle}
+          >
+            <div className=" size-5 rounded-full bg-clr-gray-700"></div>
+            <p className="sr-only">Checked/Unchecked</p>
+          </button>
         </div>
 
         <p>Include Lowercase Letters</p>
@@ -36,3 +49,4 @@ const CardBody = ({ className }: classNameProps) => {
 };
 
 export default CardBody;
+// translate-x-[90%]
