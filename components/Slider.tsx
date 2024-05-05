@@ -1,4 +1,3 @@
-"use client";
 import { useState, useEffect } from "react";
 
 const Slider = () => {
@@ -18,27 +17,26 @@ const Slider = () => {
   }, []);
 
   return (
-    <div className="w-[300px]">
-      <form action="">
-        <div className="">
-          <p>{sliderMin}</p>
-          <input
-            type="range"
-            name="slider"
-            id="slider"
-            min={sliderMin}
-            max={sliderMax}
-            defaultValue={sliderValue}
-            onChange={handleSliderChange}
-            className="range-slider"
-          />
-          <p>{sliderMax}</p>
-          <p>
-            Value: <span>{sliderValue}</span>
-          </p>
-          <label htmlFor="slider">Include Uppercase</label>
-          {isClient && (
-            <style>{`.range-slider::before{
+    <div className="mb-8 w-full">
+      <div className="flex items-center justify-between pb-3 md:pb-5">
+        <label htmlFor="slider">Character Length</label>
+        <p>
+          <span>{sliderValue}</span>
+        </p>
+      </div>
+      <input
+        type="range"
+        name="slider"
+        id="slider"
+        min={sliderMin}
+        max={sliderMax}
+        defaultValue={sliderValue}
+        onChange={handleSliderChange}
+        className="range-slider"
+      />
+
+      {isClient && (
+        <style>{`.range-slider::before{
             content: "";
             position: absolute;
             z-index: -1;
@@ -47,12 +45,7 @@ const Slider = () => {
             height: 100%;
             background-color: hsl(var(--neon-green));
           }`}</style>
-          )}
-        </div>
-        <div className="test2" data-widht={sliderBgWidth}>
-          test
-        </div>
-      </form>
+      )}
     </div>
   );
 };
