@@ -23,6 +23,8 @@ const Slider = ({
         defaultValue={sliderValue}
         onChange={handleSliderChange}
         className="range-slider"
+        aria-labelledby="slider"
+        aria-valuetext={`${sliderValue}`}
       />
 
       {isClient && (

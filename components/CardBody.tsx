@@ -63,7 +63,7 @@ const CardBody = ({
         </div>
       </div>
       <div className="mb-4 flex items-center justify-between bg-clr-gray-900 px-4 py-3 md:mb-8 md:px-8 md:py-5">
-        <p className="text-clr-gray-500">STRENGTH</p>
+        <p className="text-base text-clr-gray-500">STRENGTH</p>
         <div className="flex items-center justify-between gap-4">
           <p className="font-bold">{passwordStrength()}</p>
           <div className="flex items-center gap-2">
@@ -111,6 +111,8 @@ const CardBody = ({
         </div>
       </div>
       <button
+        role="button"
+        type="button"
         className="group flex w-full cursor-pointer items-center justify-center gap-4 bg-clr-neon-green py-4 text-base font-bold text-clr-gray-700 hover:border-2 hover:border-clr-neon-green hover:bg-transparent hover:text-clr-neon-green md:mb-2 md:gap-6 md:py-5 md:text-lg"
         onClick={generateNewPassword}
       >
@@ -122,5 +124,3 @@ const CardBody = ({
 };
 
 export default CardBody;
-
-// className = "group-hover:fill-clr-neon-green group-hover:stroke-clr-neon-green";
