@@ -2,45 +2,31 @@ import Slider from "./Slider";
 import { useState } from "react";
 import { Switch } from "./ui/switch";
 
-const CardBody = ({ className }: classNameProps) => {
-  const [switchStates, setSwitchStates] = useState({
-    uppercase: false,
-    lowercase: false,
-    numbers: false,
-    symbols: false,
-  });
+interface CardBodyProps extends classNameProps, CardProps, switchProps {}
 
-  const handleSwitchChange = (
-    type: "uppercase" | "lowercase" | "numbers" | "symbols",
-  ) => {
-    setSwitchStates({ ...switchStates, [type]: !switchStates[type] });
-  };
-
-  const countCheckedSwitch = () => {
-    return Object.values(switchStates).filter((isChecked) => isChecked).length;
-  };
-  console.log(`Number of checked switches: ${countCheckedSwitch()}`);
-
-  const getStrengthText = () => {
-    const checkedCount = countCheckedSwitch();
-
-    switch (checkedCount) {
-      case 1:
-        return "Too Weak";
-      case 2:
-        return "Weak";
-      case 3:
-        return "Medium";
-      case 4:
-        return "Strong";
-      default:
-        return ""; // No strength indication for 0 checked switches
-    }
-  };
-
+const CardBody = ({
+  className,
+  isClient,
+  sliderValue,
+  handleSliderChange,
+  sliderMin,
+  sliderMax,
+  sliderBgWidth,
+  switchStates,
+  passwordStrength,
+  handleSwitchChange,
+  countCheckedSwitch,
+}: CardBodyProps) => {
   return (
     <div className={className}>
-      <Slider />
+      <Slider
+        isClient={isClient}
+        sliderValue={sliderValue}
+        handleSliderChange={handleSliderChange}
+        sliderMin={sliderMin}
+        sliderMax={sliderMax}
+        sliderBgWidth={sliderBgWidth}
+      />
       <div className="mb-8 grid gap-4 text-base md:gap-5 md:text-lg">
         <div className="flex items-center justify-between">
           <label htmlFor="uppercase letters">Include Uppercase Letters</label>
@@ -78,7 +64,7 @@ const CardBody = ({ className }: classNameProps) => {
       <div className="mb-4 flex items-center justify-between bg-clr-gray-900 px-4 py-3 md:mb-8 md:px-8 md:py-5">
         <p className="text-clr-gray-500">STRENGTH</p>
         <div className="flex items-center justify-between gap-4">
-          <p className="font-bold">{getStrengthText()}</p>
+          <p className="font-bold">{passwordStrength()}</p>
           <div className="flex items-center gap-2">
             <div
               className={`h-[1.75rem] w-[0.625rem] ${

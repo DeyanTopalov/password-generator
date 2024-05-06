@@ -1,10 +1,12 @@
 import { CopyIcon } from "./ui/icons";
 
-const CardHeader = ({ className }: classNameProps) => {
+interface CardHeaderProps extends classNameProps, HeaderProps {}
+
+const CardHeader = ({ className, password }: CardHeaderProps) => {
   return (
     <div className={className}>
       <p className="text-2xl font-bold text-clr-gray-500 md:text-[2rem]">
-        P4$5W0rD!
+        {password}
       </p>
       <CopyIcon />
     </div>
