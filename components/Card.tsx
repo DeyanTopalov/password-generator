@@ -7,10 +7,21 @@ import { useState, useEffect } from "react";
 const Card = ({ className }: classNameProps) => {
   const [isClient, setIsClient] = useState<boolean>(false);
   const [sliderValue, setSliderValue] = useState<number>(10);
-  const [password, setPassword] = useState<string>("P4$5W0rD!");
+  const [password, setPassword] = useState<string>("");
   const sliderMin = 1;
   const sliderMax = 20;
   const sliderBgWidth = `${(sliderValue / sliderMax) * 100}%`;
+
+  const generateNewPassword = () => {
+    const newPassword = generatePassword(
+      sliderValue,
+      switchStates.uppercase,
+      switchStates.lowercase,
+      switchStates.numbers,
+      switchStates.symbols,
+    );
+    setPassword(newPassword);
+  };
 
   const handleSliderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = parseInt(event.target.value);
@@ -73,6 +84,7 @@ const Card = ({ className }: classNameProps) => {
         passwordStrength={passwordStrength}
         handleSwitchChange={handleSwitchChange}
         countCheckedSwitch={countCheckedSwitch}
+        generateNewPassword={generateNewPassword}
       />
     </div>
   );

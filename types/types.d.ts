@@ -13,6 +13,7 @@ interface CardProps {
   sliderMin: number;
   sliderMax: number;
   sliderBgWidth: string;
+  generateNewPassword?: () => void;
 }
 
 interface switchProps {

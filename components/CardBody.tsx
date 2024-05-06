@@ -1,6 +1,6 @@
 import Slider from "./Slider";
-import { useState } from "react";
 import { Switch } from "./ui/switch";
+import { ArrowIcon } from "./ui/icons";
 
 interface CardBodyProps extends classNameProps, CardProps, switchProps {}
 
@@ -16,6 +16,7 @@ const CardBody = ({
   passwordStrength,
   handleSwitchChange,
   countCheckedSwitch,
+  generateNewPassword,
 }: CardBodyProps) => {
   return (
     <div className={className}>
@@ -109,11 +110,17 @@ const CardBody = ({
           </div>
         </div>
       </div>
-      <button className="w-full bg-clr-neon-green py-4 text-base font-bold text-clr-gray-700 md:mb-2 md:py-5 md:text-lg">
-        GENERATE ---
+      <button
+        className="group flex w-full cursor-pointer items-center justify-center gap-4 bg-clr-neon-green py-4 text-base font-bold text-clr-gray-700 hover:border-2 hover:border-clr-neon-green hover:bg-transparent hover:text-clr-neon-green md:mb-2 md:gap-6 md:py-5 md:text-lg"
+        onClick={generateNewPassword}
+      >
+        <p>GENERATE</p>
+        <ArrowIcon className="group-hover:stroke-clr-neon-green group-hover:stroke-2" />
       </button>
     </div>
   );
 };
 
 export default CardBody;
+
+// className = "group-hover:fill-clr-neon-green group-hover:stroke-clr-neon-green";

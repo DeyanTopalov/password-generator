@@ -29,7 +29,7 @@ export const generatePassword = (
 
   // Handle cases where no character sets are selected
   if (charSet === "") {
-    return "Please select at least one option.";
+    return "Select options.";
   }
 
   let password = "";
